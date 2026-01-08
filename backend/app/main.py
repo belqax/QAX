@@ -4,7 +4,7 @@ from .api.news import router as news_router
 
 app = FastAPI(title="News Aggregator")
 
-app.include_router(news_router)
+app.include_router(news_router, prefix="/api", tags=["api"])
 
 
 @app.get("/health")
