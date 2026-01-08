@@ -4,11 +4,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "News Aggregator"
     debug: bool = False
 
-    # Переменная окружения DATABASE_URL в docker-compose будет источником истины
     database_url: str = "postgresql+asyncpg://news:news@db:5432/news"
+
+    fetch_interval_seconds: int = 300  # 5 минут
+    fetch_max_items_per_feed: int = 50
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -17,4 +18,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
