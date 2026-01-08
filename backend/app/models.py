@@ -2,7 +2,7 @@ import datetime as dt
 from sqlalchemy import String, Text, DateTime, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
 
-from db import Base
+from .db import Base
 
 
 class News(Base):
